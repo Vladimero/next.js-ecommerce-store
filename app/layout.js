@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
               <div>
                 <ul className={styles.mainMenu}>
                   <li>
-                    <Link href="/products" data-test-id="products-link">
+                    <Link href="/items" data-test-id="products-link">
                       Products
                     </Link>
                   </li>

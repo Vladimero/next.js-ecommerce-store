@@ -1,7 +1,7 @@
-import 'server-only';
+// import 'server-only';
 
 // array, defining the products/items --> at least 4!
-export const goods = [
+export const items = [
   { id: 1, name: 'Orthopedic Poodle Beds', price: '100,00 €' },
   { id: 2, name: 'Grooming Kit', price: '50,00 €' },
   { id: 3, name: 'Leashes Set', price: '50,00 €' },
@@ -9,10 +9,10 @@ export const goods = [
 ];
 
 // put the array into a function
-export function getGoods() {
-  return goods;
+export function getItems() {
+  return items;
 }
 
-export function getGoodsById(id) {
-  return goods.find((good) => good.id === id);
+export function getItemsById(id) {
+  return items.find((item) => item.id === id);
 }

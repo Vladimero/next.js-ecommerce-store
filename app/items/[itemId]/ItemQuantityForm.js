@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { addToCard } from './actions';
 
-export default function PoodleGoodQuantity() {
+export default function ItemQuantityForm() {
   const [quantity, setQuantity] = useState('1');
 
   return (
