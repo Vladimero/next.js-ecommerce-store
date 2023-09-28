@@ -6,7 +6,7 @@ import ItemQuantityForm from './ItemQuantityForm';
 export default function singleItemPage(props) {
   const item = getItemsById(Number(props.params.itemId));
   // catch the cookie from the actions.js file
-  const addedQuantityCookie = getCookie('addedQuantity');
+  const addedQuantityCookie = getCookie('cart');
   // parse the cookie, because it was stringified in actions.js file & when cookie is undefined create an empty array
   const addedQuantities = !addedQuantityCookie
     ? []
@@ -19,10 +19,13 @@ export default function singleItemPage(props) {
 
   return (
     <div>
-      <h1>
-        {item.name} {item.price}
-      </h1>
-      <div>{itemQuantityToDisplay?.quantity}</div>
+      <h1>{item.name}</h1>
+      <div>
+        <p>
+          <span data-test-id="product-price">Price: {item.price}€</span>
+        </p>
+      </div>
+      <div>Added quantity: {itemQuantityToDisplay?.quantity}</div>
       <ItemQuantityForm itemId={item.id} />
     </div>
   );

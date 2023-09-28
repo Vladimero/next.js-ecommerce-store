@@ -2,8 +2,6 @@ import '../globals.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import { items } from '../../database/items';
-import { getCookie } from '../../util/cookies';
-import { parseJson } from '../../util/json';
 
 export default function ItemPage() {
   return (
@@ -11,11 +9,17 @@ export default function ItemPage() {
       {items.map((item) => {
         return (
           <div key={`items-${item.id}`}>
-            <Link href={`/items/${item.id}`}>
-              <h1>
-                {item.name} {item.price}
-              </h1>
+            <Link
+              data-test-id="product-<product id>"
+              href={`/items/${item.id}`}
+            >
+              <h1>{item.name}</h1>
             </Link>
+            <div>
+              <p>
+                <span data-test-id="product-price">Price: {item.price}€</span>
+              </p>
+            </div>
           </div>
         );
       })}

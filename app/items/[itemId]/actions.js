@@ -6,7 +6,7 @@ import { parseJson } from '../../../util/json';
 
 export async function addToCard(itemId, quantity) {
   // get the current cookie
-  const itemQuantityCookie = getCookie('addedQuantity');
+  const itemQuantityCookie = getCookie('cart');
   // parse the cookie value & when cookie is undefined create an empty array
   const addedQuantities = !itemQuantityCookie
     ? []
@@ -26,5 +26,5 @@ export async function addToCard(itemId, quantity) {
     });
   }
   // overwrite the cookie, add the new quantity to the cart, as a new value is pushed to the cookie array of quantities
-  await cookies().set('addedQuantity', JSON.stringify(addedQuantities));
+  await cookies().set('cart', JSON.stringify(addedQuantities));
 }

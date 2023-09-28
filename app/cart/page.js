@@ -4,10 +4,12 @@ import Link from 'next/link';
 import { items } from '../../database/items';
 import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
+import CheckoutForm from './CheckoutForm';
+import EditAndRemoveForm from './EditAndRemoveForm';
 
 export default function CartPage() {
   // need this for the cart page --> until return JSX Code!
-  const itemQuantityCookie = getCookie('addedQuantity');
+  const itemQuantityCookie = getCookie('cart');
 
   const itemQuantity = !itemQuantityCookie ? [] : parseJson(itemQuantityCookie);
 
@@ -21,19 +23,35 @@ export default function CartPage() {
   console.log(itemsWithQuantity);
 
   return (
-    <div>
-      {itemsWithQuantity.map((item) => {
-        return (
-          <div key={`items-${item.id}`}>
-            <Link href={`/items/${item.id}`}>
-              <h1>
-                {item.name} {item.price}
-              </h1>
-            </Link>
-            {item.quantity}
-          </div>
-        );
-      })}
-    </div>
+    <>
+      <div>
+        {itemsWithQuantity.map((item) => {
+          return (
+            <div key={`items-${item.id}`}>
+              <Link href={`/items/${item.id}`}>
+                <h1>{item.name}</h1>
+              </Link>
+              <div>
+                <p>
+                  <span data-test-id="product-price">Price: {item.price}€</span>
+                </p>
+              </div>
+              <div>
+                <p>
+                  <span>Added quantity: {item.quantity}</span>
+                </p>
+              </div>
+              <EditAndRemoveForm />
+            </div>
+          );
+        })}
+      </div>
+      <b />
+      <b />
+      <b />
+      <div>
+        <CheckoutForm />
+      </div>
+    </>
   );
 }
