@@ -1,8 +1,9 @@
 'use client';
+
 import { useState } from 'react';
 import { addToCard } from './actions';
 
-export default function ItemQuantityForm() {
+export default function ItemQuantityForm(props) {
   const [quantity, setQuantity] = useState('1');
 
   return (
@@ -16,7 +17,7 @@ export default function ItemQuantityForm() {
       />
       <button
         data-test-id="product-add-to-cart"
-        formAction={async () => await addToCard(quantity)}
+        formAction={async () => await addToCard(props.itemId, quantity)}
       >
         Add to cart
       </button>

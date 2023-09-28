@@ -1,5 +1,3 @@
-// import 'server-only';
-
 // array, defining the products/items --> at least 4!
 export const items = [
   { id: 1, name: 'Orthopedic Poodle Beds', price: '100,00 €' },

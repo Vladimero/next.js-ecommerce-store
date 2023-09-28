@@ -2,6 +2,8 @@ import '../globals.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 import { items } from '../../database/items';
+import { getCookie } from '../../util/cookies';
+import { parseJson } from '../../util/json';
 
 export default function ItemPage() {
   return (

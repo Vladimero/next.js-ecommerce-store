@@ -1,5 +1,39 @@
 import '../globals.scss';
+import Image from 'next/image';
+import Link from 'next/link';
+import { items } from '../../database/items';
+import { getCookie } from '../../util/cookies';
+import { parseJson } from '../../util/json';
 
 export default function CartPage() {
-  return <div>This is my cart page</div>;
+  // need this for the cart page --> until return JSX Code!
+  const itemQuantityCookie = getCookie('addedQuantity');
+
+  const itemQuantity = !itemQuantityCookie ? [] : parseJson(itemQuantityCookie);
+
+  // Combine the cookie object with item object --> go with .map through the array --> try to .find if the item.id is in both arrays, when its find create a new variable and return it, otherwise return undefined
+  const itemsWithQuantity = items.map((item) => {
+    const matchingQuantity = itemQuantity.find(
+      (quantityObject) => item.id === quantityObject.id,
+    );
+    return { ...item, quantity: matchingQuantity?.quantity };
+  });
+  console.log(itemsWithQuantity);
+
+  return (
+    <div>
+      {itemsWithQuantity.map((item) => {
+        return (
+          <div key={`items-${item.id}`}>
+            <Link href={`/items/${item.id}`}>
+              <h1>
+                {item.name} {item.price}
+              </h1>
+            </Link>
+            {item.quantity}
+          </div>
+        );
+      })}
+    </div>
+  );
 }
