@@ -21,7 +21,6 @@ export default function ItemQuantityForm(props) {
       >
         Add to cart
       </button>
-      <button>Remove</button>
     </form>
   );
 }

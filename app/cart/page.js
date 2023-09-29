@@ -14,12 +14,15 @@ export default function CartPage() {
   const itemQuantity = !itemQuantityCookie ? [] : parseJson(itemQuantityCookie);
 
   // Combine the cookie object with item object --> go with .map through the array --> try to .find if the item.id is in both arrays, when its find create a new variable and return it, otherwise return undefined
-  const itemsWithQuantity = items.map((item) => {
-    const matchingQuantity = itemQuantity.find(
-      (quantityObject) => item.id === quantityObject.id,
-    );
-    return { ...item, quantity: matchingQuantity?.quantity };
-  });
+  const itemsWithQuantity = items
+    .map((item) => {
+      const matchingQuantity = itemQuantity.find(
+        (quantityObject) => item.id === quantityObject.id,
+      );
+      return { ...item, quantity: matchingQuantity?.quantity };
+    })
+    .filter((item) => item.quantity !== undefined); // Filter out items with undefined quantity
+
   console.log(itemsWithQuantity);
 
   return (
@@ -28,7 +31,10 @@ export default function CartPage() {
         {itemsWithQuantity.map((item) => {
           return (
             <div key={`items-${item.id}`}>
-              <Link href={`/items/${item.id}`}>
+              <Link
+                data-test-id="cart-product-<product id>"
+                href={`/items/${item.id}`}
+              >
                 <h1>{item.name}</h1>
               </Link>
               <div>
@@ -38,7 +44,9 @@ export default function CartPage() {
               </div>
               <div>
                 <p>
-                  <span>Added quantity: {item.quantity}</span>
+                  <span data-test-id="cart-product-quantity-<product id>">
+                    Added quantity: {item.quantity}
+                  </span>
                 </p>
               </div>
               <EditAndRemoveForm />

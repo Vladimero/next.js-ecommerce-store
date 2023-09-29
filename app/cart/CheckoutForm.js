@@ -5,7 +5,8 @@ import { useState } from 'react';
 export default function CheckoutForm() {
   return (
     <form>
-      <button>Proceed to Checkout</button>
+      <button data-test-id="cart-checkout">Proceed to Checkout</button>
+      <button>Continue shopping</button>
     </form>
   );
 }
