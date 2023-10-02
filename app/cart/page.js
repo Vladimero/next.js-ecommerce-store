@@ -1,10 +1,10 @@
 import '../globals.scss';
 import Image from 'next/image';
 import Link from 'next/link';
+import React from 'react';
 import { items } from '../../database/items';
 import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
-import CheckoutForm from './CheckoutForm';
 import EditAndRemoveForm from './EditAndRemoveForm';
 
 export default function CartPage() {
@@ -25,40 +25,81 @@ export default function CartPage() {
 
   console.log(itemsWithQuantity);
 
+  const totalPrice = itemsWithQuantity.reduce((total, item) => {
+    const itemTotalPrice = parseFloat(item.quantity) * parseFloat(item.price);
+    return total + itemTotalPrice;
+  }, 0);
+
+  console.log('Total Price:', totalPrice);
+
   return (
     <>
       <div>
-        {itemsWithQuantity.map((item) => {
-          return (
-            <div key={`items-${item.id}`}>
-              <Link
-                data-test-id="cart-product-<product id>"
-                href={`/items/${item.id}`}
-              >
-                <h1>{item.name}</h1>
-              </Link>
-              <div>
-                <p>
-                  <span data-test-id="product-price">Price: {item.price}€</span>
-                </p>
+        {itemsWithQuantity.length === 0 ? (
+          <p>Your cart is empty</p>
+        ) : (
+          itemsWithQuantity.map((item) => {
+            return (
+              <div key={`items-${item.id}`}>
+                <Link
+                  data-test-id="cart-product-<product id>"
+                  href={`/items/${item.id}`}
+                >
+                  <h1>{item.name}</h1>
+                </Link>
+                <div>
+                  <p>
+                    <span data-test-id="product-price">
+                      Price: {item.price}€
+                    </span>
+                  </p>
+                </div>
+                <div>
+                  <p>
+                    <span data-test-id="cart-product-quantity-<product id>">
+                      Added quantity: {item.quantity}
+                    </span>
+                  </p>
+                </div>
+                <div>
+                  <p>
+                    <span>
+                      Subtotal Price:{' '}
+                      {(
+                        parseInt(item.quantity) * parseFloat(item.price)
+                      ).toFixed(2)}{' '}
+                      €
+                    </span>
+                  </p>
+                </div>
+                <EditAndRemoveForm />
               </div>
-              <div>
-                <p>
-                  <span data-test-id="cart-product-quantity-<product id>">
-                    Added quantity: {item.quantity}
-                  </span>
-                </p>
-              </div>
-              <EditAndRemoveForm />
-            </div>
-          );
-        })}
+            );
+          })
+        )}
       </div>
       <b />
       <b />
       <b />
       <div>
-        <CheckoutForm />
+        <div>
+          <p>
+            {itemsWithQuantity.length === 0 ? null : (
+              <span data-test-id="cart-total">
+                Total Price: {totalPrice.toFixed(2)} €
+              </span>
+            )}
+          </p>
+        </div>
+        <form>
+          {itemsWithQuantity.length === 0 ? null : (
+            <Link href="/checkout" data-test-id="cart-checkout">
+              Proceed to Checkout
+            </Link>
+          )}
+          <br />
+          <Link href="/items">Continue shopping</Link>
+        </form>
       </div>
     </>
   );

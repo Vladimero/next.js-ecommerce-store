@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState } from 'react';
 import { addToCard } from './actions';
 
@@ -21,6 +22,8 @@ export default function ItemQuantityForm(props) {
       >
         Add to cart
       </button>
+      <br />
+      <Link href="/items">Continue shopping</Link>
     </form>
   );
 }
