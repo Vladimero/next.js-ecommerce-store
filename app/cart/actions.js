@@ -4,7 +4,7 @@ import { cookies } from 'next/headers';
 import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
 
-export async function removeItemFromCookies(itemId) {
+export async function removeSingleItemFromCookies(itemId) {
   // get/choose the current cookie
   const itemQuantityCookie = getCookie('cart');
 

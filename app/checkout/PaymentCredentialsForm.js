@@ -2,8 +2,12 @@
 
 import Link from 'next/link';
 import React from 'react';
+import { removeAllItemFromCookies } from './actions';
 
 export default function PaymentCredentialsForm() {
+  const handleConfirmOrder = async () => {
+    await removeAllItemFromCookies();
+  };
   return (
     <>
       <h3>Payment Information</h3>
@@ -57,7 +61,7 @@ export default function PaymentCredentialsForm() {
       <br />
       <Link data-test-id="checkout-confirm-order" href="/thankYouPage">
         <div>
-          <button>Confirm order!</button>
+          <button onClick={handleConfirmOrder}>Confirm order!</button>
         </div>
       </Link>
     </>
