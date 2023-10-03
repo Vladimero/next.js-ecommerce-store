@@ -6,7 +6,7 @@ export default function PersonalInformationForm() {
   return (
     <>
       <h3>Personal Information</h3>
-      <form>
+      <form onSubmit={(event) => event.preventDefault()}>
         <div>
           <label htmlFor="First Name">First Name</label>
           <input

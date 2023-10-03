@@ -7,7 +7,7 @@ export default function PaymentCredentialsForm() {
   return (
     <>
       <h3>Payment Information</h3>
-      <form>
+      <form onSubmit={(event) => event.preventDefault()}>
         <div>
           <label htmlFor="Credit Card number">Credit Card number</label>
           <input

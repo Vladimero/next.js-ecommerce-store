@@ -1,8 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import { removeItemFromCookies } from './actions';
 
-export default function EditAndRemoveForm() {
+export default function EditAndRemoveForm(props) {
   const [quantity, setQuantity] = useState('');
 
   return (
@@ -14,9 +15,14 @@ export default function EditAndRemoveForm() {
         value={quantity}
         onChange={(event) => setQuantity(event.currentTarget.value)}
       />
-      <button>+</button>
-      <button>-</button>
-      <button data-test-id="cart-product-remove-<product id>">Remove</button>
+      <br />
+      <br />
+      <button
+        data-test-id="cart-product-remove-<product id>"
+        formAction={async () => await removeItemFromCookies(props.itemId)}
+      >
+        Remove
+      </button>
     </form>
   );
 }

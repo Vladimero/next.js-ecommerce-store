@@ -30,8 +30,6 @@ export default function CartPage() {
     return total + itemTotalPrice;
   }, 0);
 
-  console.log('Total Price:', totalPrice);
-
   return (
     <>
       <h1>Your cart</h1>
@@ -69,11 +67,17 @@ export default function CartPage() {
                       {(
                         parseInt(item.quantity) * parseFloat(item.price)
                       ).toFixed(2)}{' '}
+                      {console.log(
+                        'Subtotal Price:',
+                        (
+                          parseInt(item.quantity) * parseFloat(item.price)
+                        ).toFixed(2),
+                      )}
                       €
                     </span>
                   </p>
                 </div>
-                <EditAndRemoveForm />
+                <EditAndRemoveForm itemId={item.id} />
               </div>
             );
           })
@@ -87,7 +91,8 @@ export default function CartPage() {
           <p>
             {itemsWithQuantity.length === 0 ? null : (
               <span data-test-id="cart-total">
-                Total Price: {totalPrice.toFixed(2)} €
+                Total Price: {totalPrice.toFixed(2)}
+                {console.log('Total Price:', totalPrice)} €
               </span>
             )}
           </p>
