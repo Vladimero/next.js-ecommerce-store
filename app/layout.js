@@ -1,9 +1,9 @@
 import './globals.scss';
 import Image from 'next/image';
 import Link from 'next/link';
+import brandLogo from '../public/images/brandLogo.png';
+import HeaderCartDisplayForm from './HeaderCartDisplayForm';
 import styles from './layout.module.scss';
-
-// import brandLogo from './public/images/brandLogoTransparent';
 
 export const metadata = {
   title: 'Create Next App',
@@ -41,7 +41,14 @@ export default function RootLayout({ children }) {
               <div>
                 <ul className={styles.headerLogo}>
                   <li>
-                    <Link href="/">Logo</Link>
+                    <Link href="/">
+                      <Image
+                        src={brandLogo}
+                        alt="Logo"
+                        width={200}
+                        height={40}
+                      />
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -51,13 +58,15 @@ export default function RootLayout({ children }) {
                     <Link href="/#">Account</Link>
                   </li>
                   <li>
-                    <Link href="/cart">Cart</Link>
+                    <HeaderCartDisplayForm data-test-id="cart-link" />
                   </li>
                 </ul>
               </div>
             </div>
           </div>
         </header>
+
+        <div>{children}</div>
 
         {/*
         <footer className={styles.footer}>
@@ -89,7 +98,6 @@ export default function RootLayout({ children }) {
           </div>
   </footer>
   */}
-        {children}
       </body>
     </html>
   );

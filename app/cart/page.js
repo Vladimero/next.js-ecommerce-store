@@ -21,13 +21,20 @@ export default function CartPage() {
       );
       return { ...item, quantity: matchingQuantity?.quantity };
     })
-    .filter((item) => item.quantity !== undefined); // Filter out items with undefined quantity
+    // Filter out items with undefined quantity
+    .filter((item) => item.quantity !== undefined);
 
   console.log('Added items to cart:', itemsWithQuantity);
 
+  // Calculate total price
   const totalPrice = itemsWithQuantity.reduce((total, item) => {
     const itemTotalPrice = parseFloat(item.quantity) * parseFloat(item.price);
     return total + itemTotalPrice;
+  }, 0);
+
+  // Calculate total quantity
+  const totalQuantity = itemsWithQuantity.reduce((total, item) => {
+    return total + parseFloat(item.quantity);
   }, 0);
 
   return (
@@ -87,6 +94,16 @@ export default function CartPage() {
       <b />
       <b />
       <div>
+        <div>
+          <p>
+            {itemsWithQuantity.length === 0 ? null : (
+              <span data-test-id="cart-total">
+                Total Quantity: {totalQuantity}
+                {console.log('Total quantity of items:', totalQuantity)} items
+              </span>
+            )}
+          </p>
+        </div>
         <div>
           <p>
             {itemsWithQuantity.length === 0 ? null : (
