@@ -23,7 +23,7 @@ export default function CartPage() {
     })
     .filter((item) => item.quantity !== undefined); // Filter out items with undefined quantity
 
-  console.log(itemsWithQuantity);
+  console.log('Added items to cart:', itemsWithQuantity);
 
   const totalPrice = itemsWithQuantity.reduce((total, item) => {
     const itemTotalPrice = parseFloat(item.quantity) * parseFloat(item.price);
@@ -34,6 +34,7 @@ export default function CartPage() {
 
   return (
     <>
+      <h1>Your cart</h1>
       <div>
         {itemsWithQuantity.length === 0 ? (
           <p>Your cart is empty</p>
@@ -45,7 +46,7 @@ export default function CartPage() {
                   data-test-id="cart-product-<product id>"
                   href={`/items/${item.id}`}
                 >
-                  <h1>{item.name}</h1>
+                  <h3>{item.name}</h3>
                 </Link>
                 <div>
                   <p>
@@ -91,15 +92,25 @@ export default function CartPage() {
             )}
           </p>
         </div>
-        <form>
-          {itemsWithQuantity.length === 0 ? null : (
-            <Link href="/checkout" data-test-id="cart-checkout">
-              Proceed to Checkout
+        <div>
+          <form>
+            {itemsWithQuantity.length === 0 ? null : (
+              <Link href="/checkout">
+                <div>
+                  <button data-test-id="cart-checkout">
+                    Proceed to Checkout
+                  </button>
+                </div>
+              </Link>
+            )}
+            <br />
+            <Link href="/items">
+              <div>
+                <button>Continue Shopping</button>
+              </div>
             </Link>
-          )}
-          <br />
-          <Link href="/items">Continue shopping</Link>
-        </form>
+          </form>
+        </div>
       </div>
     </>
   );

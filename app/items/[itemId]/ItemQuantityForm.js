@@ -23,7 +23,18 @@ export default function ItemQuantityForm(props) {
         Add to cart
       </button>
       <br />
-      <Link href="/items">Continue shopping</Link>
+      <br />
+      <Link href="/cart">
+        <div>
+          <button>View cart</button>
+        </div>
+      </Link>
+      <br />
+      <Link href="/items">
+        <div>
+          <button>Continue Shopping</button>
+        </div>
+      </Link>
     </form>
   );
 }

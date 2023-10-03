@@ -26,6 +26,7 @@ export default function singleItemPage(props) {
         </p>
       </div>
       <div>Added quantity: {itemQuantityToDisplay?.quantity}</div>
+      <br />
       <ItemQuantityForm itemId={item.id} />
     </div>
   );
