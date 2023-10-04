@@ -21,7 +21,7 @@ export default function CartPage() {
       );
       return { ...item, quantity: matchingQuantity?.quantity };
     })
-    // Filter out items with undefined quantity
+    // Filter out items with undefined quantity --> Display only added items in cart
     .filter((item) => item.quantity !== undefined);
 
   console.log('Added items to cart:', itemsWithQuantity);

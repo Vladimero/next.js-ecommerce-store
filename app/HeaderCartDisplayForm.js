@@ -5,7 +5,6 @@ import { getCookie } from '../util/cookies';
 import { parseJson } from '../util/json';
 
 export default function HeaderCartDisplayForm() {
-  // need this for the cart page --> until return JSX Code!
   const itemQuantityCookie = getCookie('cart');
 
   const itemQuantity = !itemQuantityCookie ? [] : parseJson(itemQuantityCookie);
