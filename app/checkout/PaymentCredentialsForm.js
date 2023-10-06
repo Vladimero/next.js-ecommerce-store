@@ -23,7 +23,7 @@ export default function PaymentCredentialsForm() {
       !securityCode.match(/^\d{3}$/)
     ) {
       alert('Enter a valid credit card number.');
-      return;
+      return; // single return means: do nothing and stop here
     }
     await removeAllItemFromCookies();
     router.push('/thankYouPage');
@@ -32,9 +32,9 @@ export default function PaymentCredentialsForm() {
   return (
     <>
       <h3>Payment Information</h3>
-      <form onSubmit={(event) => handleConfirmOrder(event)} required>
+      <form>
         <div>
-          <label htmlFor="Credit Card number">Credit Card number</label>
+          <label htmlFor="Credit Card number">Credit Card number: </label>
           <input
             data-test-id="checkout-credit-card"
             id="creditCardNumber"
@@ -57,7 +57,7 @@ export default function PaymentCredentialsForm() {
         </div>
         <br />
         <div>
-          <label htmlFor="Expiration date">Expiration date</label>
+          <label htmlFor="Expiration date">Expiration date: </label>
           <input
             data-test-id="checkout-expiration-date"
             id="expirationDate"
@@ -80,7 +80,7 @@ export default function PaymentCredentialsForm() {
         </div>
         <br />
         <div>
-          <label htmlFor="Security code">Security code</label>
+          <label htmlFor="Security code">Security code: </label>
           <input
             data-test-id="checkout-security-code"
             id="securityCode"

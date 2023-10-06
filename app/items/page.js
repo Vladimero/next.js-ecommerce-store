@@ -1,9 +1,12 @@
 import '../globals.scss';
-import Image from 'next/image';
 import Link from 'next/link';
-import { items } from '../../database/items';
+import { getItems } from '../../database/items';
 
-export default function ItemPage() {
+// import { items } from '../../database/items';
+
+export default async function ItemPage() {
+  const items = await getItems();
+
   return (
     <div>
       {items.map((item) => {

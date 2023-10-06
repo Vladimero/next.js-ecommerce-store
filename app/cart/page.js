@@ -1,14 +1,14 @@
 import '../globals.scss';
-import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import { items } from '../../database/items';
+import { getItems } from '../../database/items';
 import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
 import EditAndRemoveForm from './EditAndRemoveForm';
 
-export default function CartPage() {
-  // need this for the cart page --> until return JSX Code!
+export default async function CartPage() {
+  const items = await getItems();
+  // get/choose the current cookie
   const itemQuantityCookie = getCookie('cart');
 
   const itemQuantity = !itemQuantityCookie ? [] : parseJson(itemQuantityCookie);
@@ -26,13 +26,13 @@ export default function CartPage() {
 
   console.log('Added items to cart:', itemsWithQuantity);
 
-  // Calculate total price
+  // Calculate total price in cart
   const totalPrice = itemsWithQuantity.reduce((total, item) => {
     const itemTotalPrice = parseFloat(item.quantity) * parseFloat(item.price);
     return total + itemTotalPrice;
   }, 0);
 
-  // Calculate total quantity
+  // Calculate total quantity in cart
   const totalQuantity = itemsWithQuantity.reduce((total, item) => {
     return total + parseFloat(item.quantity);
   }, 0);

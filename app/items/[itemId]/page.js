@@ -3,8 +3,8 @@ import { getCookie } from '../../../util/cookies';
 import { parseJson } from '../../../util/json';
 import ItemQuantityForm from './ItemQuantityForm';
 
-export default function singleItemPage(props) {
-  const item = getItemsById(Number(props.params.itemId));
+export default async function singleItemPage(props) {
+  const item = await getItemsById(Number(props.params.itemId));
   // catch the cookie from the actions.js file
   const addedQuantityCookie = getCookie('cart');
   // parse the cookie, because it was stringified in actions.js file & when cookie is undefined create an empty array
@@ -20,6 +20,11 @@ export default function singleItemPage(props) {
   return (
     <div>
       <h1>{item.name}</h1>
+      <div>
+        <p>
+          <span>{item.description}</span>
+        </p>
+      </div>
       <div>
         <p>
           <span data-test-id="product-price">Price: {item.price}€</span>
