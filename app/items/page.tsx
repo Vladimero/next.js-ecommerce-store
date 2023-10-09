@@ -1,11 +1,19 @@
 import '../globals.scss';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 import { getItems } from '../../database/items';
 
-// import { items } from '../../database/items';
+export const metadata = {
+  title: 'Poodle goods page',
+  description: 'Choose your poodle goods',
+};
 
-export default async function ItemPage() {
+export default async function ItemsPage() {
   const items = await getItems();
+
+  if (!items) {
+    return notFound();
+  }
 
   return (
     <div>

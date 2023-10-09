@@ -1,10 +1,30 @@
+import { notFound } from 'next/navigation';
 import { getItemsById } from '../../../database/items';
 import { getCookie } from '../../../util/cookies';
 import { parseJson } from '../../../util/json';
 import ItemQuantityForm from './ItemQuantityForm';
 
-export default async function singleItemPage(props) {
+type Props = {
+  params: {
+    itemId: string;
+  };
+};
+
+export async function generateMetadata(props: Props) {
+  const singleAnimal = await getItemsById(Number(props.params.itemId));
+
+  return {
+    title: singleAnimal ? singleAnimal.name : '',
+  };
+}
+
+export default async function SingleItemPage(props: Props) {
   const item = await getItemsById(Number(props.params.itemId));
+
+  if (!item) {
+    notFound();
+  }
+
   // catch the cookie from the actions.js file
   const addedQuantityCookie = getCookie('cart');
   // parse the cookie, because it was stringified in actions.js file & when cookie is undefined create an empty array
@@ -13,7 +33,7 @@ export default async function singleItemPage(props) {
     : parseJson(addedQuantityCookie);
 
   // Display only one added quantity, create a find method
-  const itemQuantityToDisplay = addedQuantities.find((addedQuantity) => {
+  const itemQuantityToDisplay = addedQuantities?.find((addedQuantity) => {
     return addedQuantity.id === item.id;
   });
 

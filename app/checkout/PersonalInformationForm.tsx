@@ -1,12 +1,16 @@
 'use client';
 
-import React from 'react';
+import React, { FormEvent } from 'react';
 
 export default function PersonalInformationForm() {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+  }
+
   return (
     <>
       <h3>Personal Information</h3>
-      <form onSubmit={(event) => event.preventDefault()} required>
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="First Name">First Name</label>
           <input

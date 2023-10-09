@@ -4,13 +4,18 @@ import { cookies } from 'next/headers';
 import { getCookie } from '../../../util/cookies';
 import { parseJson } from '../../../util/json';
 
-export async function addToCard(itemId, quantity) {
+export type AddedQuantity = {
+  id: number;
+  quantity: string;
+};
+
+export async function addToCard(itemId: number, quantity: string) {
   // get/choose the current cookie
   const itemQuantityCookie = getCookie('cart');
   // parse the cookie value & when cookie is undefined create an empty array
   const addedQuantities = !itemQuantityCookie
     ? []
-    : parseJson(itemQuantityCookie);
+    : parseJson(itemQuantityCookie) || [];
 
   // edit the cookie value & get the object
   const itemQuantityToUpdate = addedQuantities.find((addedQuantity) => {

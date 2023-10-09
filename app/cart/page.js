@@ -6,6 +6,11 @@ import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
 import EditAndRemoveForm from './EditAndRemoveForm';
 
+export const metadata = {
+  title: 'Cart',
+  description: 'You chosen poodle goods',
+};
+
 export default async function CartPage() {
   const items = await getItems();
   // get/choose the current cookie
