@@ -3,7 +3,7 @@
 // import { readFileSync } from 'node:fs';
 // import dotenv from 'dotenv';
 import postgres from 'postgres';
-import { setEnvironmentVariables } from './util/config.js';
+import { setEnvironmentVariables } from './util/config.mjs';
 
 /*
 export function setEnvironmentVariables() {
