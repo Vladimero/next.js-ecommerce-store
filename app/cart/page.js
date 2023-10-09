@@ -122,20 +122,24 @@ export default async function CartPage() {
         <div>
           <form>
             {itemsWithQuantity.length === 0 ? null : (
-              <Link href="/checkout">
-                <div>
-                  <button data-test-id="cart-checkout">
-                    Proceed to Checkout
-                  </button>
-                </div>
-              </Link>
+              <div>
+                <Link href="/checkout">
+                  <span>
+                    <button data-test-id="cart-checkout">
+                      Proceed to Checkout
+                    </button>
+                  </span>
+                </Link>
+              </div>
             )}
             <br />
-            <Link href="/items">
-              <div>
-                <button>Continue Shopping</button>
-              </div>
-            </Link>
+            <div>
+              <Link href="/items">
+                <span>
+                  <button>Continue Shopping</button>
+                </span>
+              </Link>
+            </div>
           </form>
         </div>
       </div>

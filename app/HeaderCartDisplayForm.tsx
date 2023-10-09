@@ -10,7 +10,7 @@ export default function HeaderCartDisplayForm() {
   const itemQuantity = !itemQuantityCookie ? [] : parseJson(itemQuantityCookie);
 
   // Calculate total quantity
-  const totalQuantity = itemQuantity.reduce((total, item) => {
+  const totalQuantity = itemQuantity?.reduce((total, item) => {
     return total + parseFloat(item.quantity);
   }, 0);
 

@@ -103,13 +103,16 @@ export default function PaymentCredentialsForm() {
           />
         </div>
         <br />
-        <Link data-test-id="checkout-confirm-order" href="/thankYouPage">
-          <div>
-            <button onClick={(event) => handleConfirmOrder(event)}>
-              Confirm order!
-            </button>
-          </div>
-        </Link>
+        <div>
+          <Link data-test-id="checkout-confirm-order" href="/thankYouPage">
+            <span>
+              <button onClick={(event) => handleConfirmOrder(event)}>
+                Confirm order!
+              </button>
+            </span>
+          </Link>
+        </div>
+        <br />
       </form>
     </>
   );

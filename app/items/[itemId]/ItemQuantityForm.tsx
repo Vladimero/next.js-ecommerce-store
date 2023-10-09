@@ -40,17 +40,21 @@ export default function ItemQuantityForm(props: Props) {
       </button>
       <br />
       <br />
-      <Link href="/cart">
-        <div>
-          <button>View cart</button>
-        </div>
-      </Link>
+      <div>
+        <Link href="/cart">
+          <span>
+            <button>View cart</button>
+          </span>
+        </Link>
+      </div>
       <br />
-      <Link href="/items">
-        <div>
-          <button>Continue Shopping</button>
-        </div>
-      </Link>
+      <div>
+        <Link href="/items">
+          <span>
+            <button>Continue Shopping</button>
+          </span>
+        </Link>
+      </div>
     </form>
   );
 }
