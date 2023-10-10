@@ -1,4 +1,5 @@
-import '../globals.scss';
+import '../globals.css';
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getItems } from '../../database/items';
@@ -21,10 +22,19 @@ export default async function ItemsPage() {
         return (
           <div key={`items-${item.id}`}>
             <Link
-              data-test-id="product-<product id>"
+              data-test-id={`product-${item.id}`}
               href={`/items/${item.id}`}
             >
               <h1>{item.name}</h1>
+              <figure>
+                <Image
+                  data-test-id="product-image"
+                  src={`/images/${item.name}.png`}
+                  alt={item.description}
+                  width={385}
+                  height={322}
+                />
+              </figure>
             </Link>
             <div>
               <p>

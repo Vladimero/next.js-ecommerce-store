@@ -1,19 +1,9 @@
-import './globals.scss';
+import './globals.css';
 
 export default function Home() {
   return (
-    <main>
-      <section>
-        <div> Hero section </div>
-      </section>
-
-      <section>
-        <div> Trend products </div>
-      </section>
-
-      <section>
-        <div> About section </div>
-      </section>
-    </main>
+    <div className="hero min-h-screen background-image">
+      <p>HeroImage</p>
+    </div>
   );
 }

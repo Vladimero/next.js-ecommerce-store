@@ -1,4 +1,4 @@
-import '../globals.scss';
+import '../globals.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';

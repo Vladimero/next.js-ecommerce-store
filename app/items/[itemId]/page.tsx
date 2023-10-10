@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getItemsById } from '../../../database/items';
 import { getCookie } from '../../../util/cookies';
@@ -40,6 +41,17 @@ export default async function SingleItemPage(props: Props) {
   return (
     <div>
       <h1>{item.name}</h1>
+      <div>
+        <figure>
+          <Image
+            data-test-id="product-image"
+            src={`/images/${item.name}.png`}
+            alt={item.description}
+            width={385}
+            height={322}
+          />
+        </figure>
+      </div>
       <div>
         <p>
           <span>{item.description}</span>

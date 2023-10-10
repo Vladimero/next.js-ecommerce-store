@@ -1,4 +1,5 @@
-import '../globals.scss';
+import '../globals.css';
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { getItems } from '../../database/items';
@@ -56,7 +57,18 @@ export default async function CartPage() {
                   data-test-id="cart-product-<product id>"
                   href={`/items/${item.id}`}
                 >
-                  <h3>{item.name}</h3>
+                  <span>
+                    <h3>{item.name}</h3>
+                  </span>
+                  <figure>
+                    <Image
+                      data-test-id="product-image"
+                      src={`/images/${item.name}.png`}
+                      alt={item.description}
+                      width={300}
+                      height={250}
+                    />
+                  </figure>
                 </Link>
                 <div>
                   <p>

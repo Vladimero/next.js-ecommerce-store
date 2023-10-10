@@ -1,4 +1,4 @@
-import './globals.scss';
+import './globals.css';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ReactNode } from 'react';
@@ -19,20 +19,11 @@ export default function RootLayout(props: Props) {
   return (
     <html lang="en">
       <body>
-        <div className={styles.topBar}>
-          <div className={styles.topBarContainer}>
-            <div className={styles.topBarContainerInner}>
-              <p>Made in Austria</p>
-              <p>Exclusive</p>
-              <p>Worldwide free shipping</p>
-            </div>
-          </div>
-        </div>
-        <header className={styles.header}>
-          <div className={styles.headerContainer}>
-            <div className={styles.headerContainerInner}>
+        <header>
+          <div>
+            <div>
               <div>
-                <ul className={styles.mainMenu}>
+                <ul>
                   <li>
                     <Link href="/items" data-test-id="products-link">
                       Products
@@ -41,7 +32,7 @@ export default function RootLayout(props: Props) {
                 </ul>
               </div>
               <div>
-                <ul className={styles.headerLogo}>
+                <ul>
                   <li>
                     <Link href="/">
                       <Image
@@ -55,7 +46,7 @@ export default function RootLayout(props: Props) {
                 </ul>
               </div>
               <div>
-                <ul className={styles.headerRight}>
+                <ul>
                   <li>
                     <HeaderCartDisplayForm data-test-id="cart-link" />
                   </li>
@@ -65,7 +56,7 @@ export default function RootLayout(props: Props) {
           </div>
         </header>
 
-        <div>{props.children}</div>
+        {props.children}
 
         {/*
         <footer className={styles.footer}>
