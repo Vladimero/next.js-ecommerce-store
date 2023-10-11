@@ -8,7 +8,7 @@ module.exports = {
   theme: ['autumn'],
   extend: {},
 
-  plugins: [require('daisyui')],
+  plugins: [require('@tailwindcss/typography'), require('daisyui')],
 
   daisyui: {
     themes: false, // true: all themes | false: only light + dark | array: specific themes like this ["light", "dark", "cupcake"]
