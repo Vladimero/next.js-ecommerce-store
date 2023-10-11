@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getItemsById } from '../../../database/items';
@@ -39,32 +40,40 @@ export default async function SingleItemPage(props: Props) {
   });
 
   return (
-    <div>
-      <h1>{item.name}</h1>
-      <div>
-        <figure>
-          <Image
-            data-test-id="product-image"
-            src={`/images/${item.name}.png`}
-            alt={item.description}
-            width={385}
-            height={322}
-          />
-        </figure>
+    <>
+      <Head>
+        <title>Your Page Title</title>
+        <meta name="description" content="Your meta description goes here" />
+      </Head>
+      <div className="grid justify-center items-center mb-24">
+        <div className="card lg:card-side bg-base-200 shadow-xl">
+          <figure className="px-5 pt-5 pb-5">
+            <Image
+              data-test-id="product-image"
+              src={`/images/${item.name}.png`}
+              alt={item.description}
+              width={385}
+              height={322}
+              className="rounded-lg"
+            />
+          </figure>
+          <div className="card-body items-center text-center">
+            <h1 className="card-title">{item.name}</h1>
+            <p>{item.description}</p>
+            <p>
+              <span data-test-id="product-price">Price: {item.price}€</span>
+            </p>
+            <p>
+              <span data-test-id="product-price">
+                Added quantity: {itemQuantityToDisplay?.quantity}
+              </span>
+            </p>
+            <div className="card-actions justify-end">
+              <ItemQuantityForm itemId={item.id} />
+            </div>
+          </div>
+        </div>
       </div>
-      <div>
-        <p>
-          <span>{item.description}</span>
-        </p>
-      </div>
-      <div>
-        <p>
-          <span data-test-id="product-price">Price: {item.price}€</span>
-        </p>
-      </div>
-      <div>Added quantity: {itemQuantityToDisplay?.quantity}</div>
-      <br />
-      <ItemQuantityForm itemId={item.id} />
-    </div>
+    </>
   );
 }

@@ -45,8 +45,8 @@ export default async function CartPage() {
 
   return (
     <>
-      <h1>Your cart</h1>
-      <div>
+      <div className="pt-16">
+        <h1>Your cart</h1>
         {itemsWithQuantity.length === 0 ? (
           <p>Your cart is empty</p>
         ) : (
@@ -110,7 +110,7 @@ export default async function CartPage() {
       <b />
       <b />
       <b />
-      <div>
+      <div className="pb-16">
         <div>
           <p>
             {itemsWithQuantity.length === 0 ? null : (

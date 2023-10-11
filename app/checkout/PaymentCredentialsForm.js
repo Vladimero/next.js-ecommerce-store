@@ -22,7 +22,7 @@ export default function PaymentCredentialsForm() {
       securityCode === '' ||
       !securityCode.match(/^\d{3}$/)
     ) {
-      alert('Enter a valid credit card number.');
+      alert('Enter valid Payment credentials');
       return; // single return means: do nothing and stop here
     }
     await removeAllItemFromCookies();

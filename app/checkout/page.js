@@ -59,23 +59,20 @@ export default async function CheckoutPage() {
               </div>
             );
           })}
-
           <b />
           <b />
           <div>
             <div>
               <p>
                 <span data-test-id="cart-total">
-                  Total Quantity: {totalQuantity}
-                  {console.log('Total quantity of items:', totalQuantity)} items
+                  Total Quantity: {totalQuantity} items
                 </span>
               </p>
             </div>
             <div>
               <p>
                 <span data-test-id="cart-total">
-                  Total Price: {totalPrice.toFixed(2)}
-                  {console.log('Total Price:', totalPrice)} €
+                  Total Price: {totalPrice.toFixed(2)} €
                 </span>
               </p>
             </div>

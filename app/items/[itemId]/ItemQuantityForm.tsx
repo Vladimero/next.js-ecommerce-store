@@ -33,15 +33,20 @@ export default function ItemQuantityForm(props: Props) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className="card-text" onSubmit={handleSubmit}>
       <input
-        data-test-id="product-quantity"
         type="number"
+        className="input input-bordered w-1/4 input-md max-w-xs"
+        data-test-id="product-quantity"
         min="1"
         value={quantity}
         onChange={handleChange}
       />
-      <button data-test-id="product-add-to-cart" onClick={handleAddToCart}>
+      <button
+        className="btn btn-outline"
+        data-test-id="product-add-to-cart"
+        onClick={handleAddToCart}
+      >
         Add to cart
       </button>
       <br />
@@ -49,7 +54,9 @@ export default function ItemQuantityForm(props: Props) {
       <div>
         <Link href="/cart">
           <span>
-            <button>View cart</button>
+            <button className="btn btn-outline btn-wide btn-md">
+              View cart
+            </button>
           </span>
         </Link>
       </div>
@@ -57,7 +64,9 @@ export default function ItemQuantityForm(props: Props) {
       <div>
         <Link href="/items">
           <span>
-            <button>Continue Shopping</button>
+            <button className="btn btn-outline btn-wide btn-sm">
+              Continue Shopping
+            </button>
           </span>
         </Link>
       </div>

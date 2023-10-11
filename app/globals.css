@@ -2,23 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/**,
-:after,
-:before {
-  box-sizing: border-box;
-}
-*/
-
 li {
   list-style-type: none;
 }
 
 a {
   text-decoration: none;
-}
-
-.background-Image {
-  background-image: url('../public/images/heroImage.png');
-  background-size: cover;
-  background-position: center;
 }
