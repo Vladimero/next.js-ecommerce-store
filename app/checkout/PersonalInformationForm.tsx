@@ -18,6 +18,7 @@ export default function PersonalInformationForm() {
             title="Please enter text only (no numbers)"
             autoComplete="on"
             required
+            className="input input-bordered max-w-xs"
           />
         </div>
         <br />
@@ -32,6 +33,7 @@ export default function PersonalInformationForm() {
             title="Please enter text only (no numbers)"
             autoComplete="on"
             required
+            className="input input-bordered max-w-xs"
           />
         </div>
         <br />
@@ -46,6 +48,7 @@ export default function PersonalInformationForm() {
             title="Please enter a valid email address"
             autoComplete="on"
             required
+            className="input input-bordered max-w-xs"
           />
         </div>
         <br />
@@ -60,6 +63,7 @@ export default function PersonalInformationForm() {
             title="Please enter text only (no numbers)"
             autoComplete="on"
             required
+            className="input input-bordered max-w-xs"
           />
         </div>
         <br />
@@ -74,6 +78,7 @@ export default function PersonalInformationForm() {
             title="Please enter text only (no numbers)"
             autoComplete="on"
             required
+            className="input input-bordered max-w-xs"
           />
         </div>
         <br />
@@ -87,6 +92,7 @@ export default function PersonalInformationForm() {
             pattern="[0-9]{5}"
             title="Please enter a valid postal code"
             required
+            className="input input-bordered max-w-xs"
           />
         </div>
         <br />
@@ -101,6 +107,7 @@ export default function PersonalInformationForm() {
             title="Please enter text only (no numbers)"
             autoComplete="on"
             required
+            className="input input-bordered max-w-xs"
           />
         </div>
       </form>

@@ -45,116 +45,216 @@ export default async function CartPage() {
 
   return (
     <>
-      <div className="pt-16">
-        <h1>Your cart</h1>
-        {itemsWithQuantity.length === 0 ? (
-          <p>Your cart is empty</p>
-        ) : (
-          itemsWithQuantity.map((item) => {
-            return (
-              <div key={`items-${item.id}`}>
-                <Link
-                  data-test-id="cart-product-<product id>"
-                  href={`/items/${item.id}`}
-                >
-                  <span>
-                    <h3>{item.name}</h3>
-                  </span>
-                  <figure>
-                    <Image
-                      data-test-id="product-image"
-                      src={`/images/${item.name}.png`}
-                      alt={item.description}
-                      width={300}
-                      height={250}
-                    />
-                  </figure>
-                </Link>
-                <div>
-                  <p>
-                    <span data-test-id="product-price">
-                      Price: {item.price}€
-                    </span>
-                  </p>
-                </div>
-                <div>
-                  <p>
-                    <span data-test-id="cart-product-quantity-<product id>">
-                      Added quantity: {item.quantity}
-                    </span>
-                  </p>
-                </div>
-                <div>
-                  <p>
-                    <span>
-                      Subtotal Price:{' '}
-                      {(
-                        parseInt(item.quantity) * parseFloat(item.price)
-                      ).toFixed(2)}{' '}
-                      {console.log(
-                        'Subtotal Price:',
-                        (
+      <div className="justify-center items-center min-h-screen w-full mb-14 p-6">
+        <h1 className="font-bold text-4xl text-center pt-6">Your cart</h1>
+        <div className="flex flex-col w-full lg:flex-row">
+          <div className="grid flex-grow h-32 card bg-base-100 rounded-box place-items-center">
+            <div className="overflow-x-auto">
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Price (€)</th>
+                    <th>Quantity</th>
+                    <th>Subtotal Price (€)</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {itemsWithQuantity.map((item) => (
+                    <tr key={`items-${item.id}`}>
+                      <td>
+                        <div className="flex items-center space-x-3">
+                          <div className="avatar">
+                            <Link
+                              data-test-id="cart-product-<product id>"
+                              href={`/items/${item.id}`}
+                            >
+                              <div className="mask mask-squircle w-12 h-12">
+                                <Image
+                                  src={`/images/${item.name}.png`}
+                                  alt={item.description}
+                                  width={12}
+                                  height={12}
+                                  className="rounded-xl"
+                                />
+                              </div>
+                            </Link>
+                          </div>
+                          <div>
+                            <div className="font-bold">{item.name}</div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>{item.price}</td>
+                      <td>{item.quantity}</td>
+                      <td>
+                        {(
                           parseInt(item.quantity) * parseFloat(item.price)
-                        ).toFixed(2),
-                      )}
-                      €
+                        ).toFixed(2)}
+                      </td>
+                      <td>
+                        <EditAndRemoveForm itemId={item.id} />
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div className="grid flex-grow h-32 card bg-base-100 rounded-box place-items-center">
+            <div className="card w-96 bg-base-200 shadow-xl">
+              <div className="card-body items-center text-center">
+                <h2 className="card-title">
+                  {itemsWithQuantity.length === 0 ? null : (
+                    <span data-test-id="cart-total">
+                      Total Quantity: {totalQuantity}
+                      {console.log(
+                        'Total quantity of items:',
+                        totalQuantity,
+                      )}{' '}
+                      items
                     </span>
-                  </p>
-                </div>
-                <EditAndRemoveForm itemId={item.id} />
+                  )}
+                  <br />
+                  {itemsWithQuantity.length === 0 ? null : (
+                    <span data-test-id="cart-total">
+                      Total Price: {totalPrice.toFixed(2)}
+                      {console.log('Total Price:', totalPrice)} €
+                    </span>
+                  )}
+                </h2>
               </div>
-            );
-          })
-        )}
+              <form className="card-body items-center text-center">
+                {itemsWithQuantity.length === 0 ? null : (
+                  <div className="card-title">
+                    <Link href="/checkout">
+                      <span>
+                        <button
+                          data-test-id="cart-checkout"
+                          className="btn btn-outline btn-wide btn-md"
+                        >
+                          Proceed to Checkout
+                        </button>
+                      </span>
+                    </Link>
+                  </div>
+                )}
+                <br />
+                <div className="card-title">
+                  <Link href="/items">
+                    <span>
+                      <button className="btn btn-outline">
+                        Continue Shopping
+                      </button>
+                    </span>
+                  </Link>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
-      <b />
-      <b />
-      <b />
-      <div className="pb-16">
-        <div>
-          <p>
+
+      {/* <div className="justify-center items-center min-h-screen w-full mb-14 p-6"> */}
+      <div className="overflow-x-auto">
+        <table className="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Price (€)</th>
+              <th>Quantity</th>
+              <th>Subtotal Price (€)</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {itemsWithQuantity.map((item) => (
+              <tr key={`items-${item.id}`}>
+                <td>
+                  <div className="flex items-center space-x-3">
+                    <div className="avatar">
+                      <Link
+                        data-test-id="cart-product-<product id>"
+                        href={`/items/${item.id}`}
+                      >
+                        <div className="mask mask-squircle w-12 h-12">
+                          <Image
+                            src={`/images/${item.name}.png`}
+                            alt={item.description}
+                            width={12}
+                            height={12}
+                            className="rounded-xl"
+                          />
+                        </div>
+                      </Link>
+                    </div>
+                    <div>
+                      <div className="font-bold">{item.name}</div>
+                    </div>
+                  </div>
+                </td>
+                <td>{item.price}</td>
+                <td>{item.quantity}</td>
+                <td>
+                  {(parseInt(item.quantity) * parseFloat(item.price)).toFixed(
+                    2,
+                  )}
+                </td>
+                <td>
+                  <EditAndRemoveForm itemId={item.id} />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="card w-96 bg-base-200 shadow-xl">
+        <div className="card-body items-center text-center">
+          <h2 className="card-title">
             {itemsWithQuantity.length === 0 ? null : (
               <span data-test-id="cart-total">
                 Total Quantity: {totalQuantity}
                 {console.log('Total quantity of items:', totalQuantity)} items
               </span>
             )}
-          </p>
-        </div>
-        <div>
-          <p>
+            <br />
             {itemsWithQuantity.length === 0 ? null : (
               <span data-test-id="cart-total">
                 Total Price: {totalPrice.toFixed(2)}
                 {console.log('Total Price:', totalPrice)} €
               </span>
             )}
-          </p>
+          </h2>
         </div>
-        <div>
-          <form>
-            {itemsWithQuantity.length === 0 ? null : (
-              <div>
-                <Link href="/checkout">
-                  <span>
-                    <button data-test-id="cart-checkout">
-                      Proceed to Checkout
-                    </button>
-                  </span>
-                </Link>
-              </div>
-            )}
-            <br />
-            <div>
-              <Link href="/items">
+        <form className="card-body items-center text-center">
+          {itemsWithQuantity.length === 0 ? null : (
+            <div className="card-title">
+              <Link href="/checkout">
                 <span>
-                  <button>Continue Shopping</button>
+                  <button
+                    data-test-id="cart-checkout"
+                    className="btn btn-outline btn-wide btn-md"
+                  >
+                    Proceed to Checkout
+                  </button>
                 </span>
               </Link>
             </div>
-          </form>
-        </div>
+          )}
+          <br />
+          <div className="card-title">
+            <Link href="/items">
+              <span>
+                <button className="btn btn-outline">Continue Shopping</button>
+              </span>
+            </Link>
+          </div>
+        </form>
       </div>
+      {/* </div> */}
     </>
   );
 }

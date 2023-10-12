@@ -30,7 +30,7 @@ export default function Home() {
           src={heroImageTwo}
           alt="2"
           width={500}
-          height={200}
+          height={150}
           className="w-full"
         />
         <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -47,7 +47,7 @@ export default function Home() {
           src={heroImageThree}
           alt="3"
           width={500}
-          height={200}
+          height={150}
           className="w-full"
         />
         <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
@@ -64,7 +64,7 @@ export default function Home() {
           src={heroImageFour}
           alt="4"
           width={500}
-          height={200}
+          height={150}
           className="w-full"
         />
         <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">

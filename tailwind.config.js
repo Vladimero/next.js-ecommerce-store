@@ -6,7 +6,12 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: ['autumn'],
-  extend: {},
+  extend: {
+    height: {
+      96: '24rem',
+      128: '32rem',
+    },
+  },
 
   plugins: [require('@tailwindcss/typography'), require('daisyui')],
 
