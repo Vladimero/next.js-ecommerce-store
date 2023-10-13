@@ -42,8 +42,11 @@ export default async function SingleItemPage(props: Props) {
   return (
     <>
       <Head>
-        <title>Your Page Title</title>
-        <meta name="description" content="Your meta description goes here" />
+        <title>Single Item Page</title>
+        <meta
+          name="description"
+          content={`Item name: ${item.name} Item description: ${item.description} Price: ${item.price} ${item.price}`}
+        />
       </Head>
       <div className="grid justify-center items-center mb-24">
         <div className="card lg:card-side bg-base-200 shadow-xl">

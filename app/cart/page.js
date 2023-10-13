@@ -1,4 +1,5 @@
 import '../globals.css';
+import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
@@ -46,6 +47,13 @@ export default async function CartPage() {
   return (
     <>
       <div className="justify-center items-center min-h-screen w-full mb-14 p-6">
+        <Head>
+          <title>Carts Page</title>
+          <meta
+            name="description"
+            content="View your added items here in the cart and edit them when needed."
+          />
+        </Head>
         <h1 className="font-bold text-4xl text-center pt-6">Your cart</h1>
         <div className="flex flex-col w-full lg:flex-row">
           <div className="grid flex-grow h-32 card bg-base-100 rounded-box place-items-center">

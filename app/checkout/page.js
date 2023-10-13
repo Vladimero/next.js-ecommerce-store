@@ -1,4 +1,5 @@
 import '../globals.css';
+import Head from 'next/head';
 import Link from 'next/link';
 import { getItems } from '../../database/items';
 import { getCookie } from '../../util/cookies';
@@ -43,6 +44,13 @@ export default async function CheckoutPage() {
   return (
     <>
       <div className="flex flex-col w-full lg:flex-row">
+        <Head>
+          <title>Checkout Page</title>
+          <meta
+            name="description"
+            content="Fill the fields and provide your personal and payment data."
+          />
+        </Head>
         <div className="grid flex-grow h-96 card bg-base-100 rounded-box place-items-center m-4">
           <PersonalInformationForm />
         </div>

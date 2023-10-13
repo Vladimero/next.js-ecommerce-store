@@ -1,4 +1,5 @@
 import './globals.css';
+import Head from 'next/head';
 import Image from 'next/image';
 import heroImageFour from '../public/images/heroImageFour.jpg';
 import heroImageOne from '../public/images/heroImageOne.jpg';
@@ -8,6 +9,13 @@ import heroImageTwo from '../public/images/heroImageTwo.jpg';
 export default function Home() {
   return (
     <div className="carousel w-full">
+      <Head>
+        <title>Homepage</title>
+        <meta
+          name="description"
+          content="Welcome to our Poodle Shop. Explore our divers product segments."
+        />
+      </Head>
       <div id="slide1" className="carousel-item relative w-full">
         <Image
           src={heroImageOne}

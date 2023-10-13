@@ -14,14 +14,8 @@ export default function ItemQuantityForm(props: Props) {
   const router = useRouter();
 
   const handleAddToCart = async () => {
-    const parsedQuantity = parseInt(quantity, 10);
-    // Check if quantity is a valid positive number
-    if (!isNaN(parsedQuantity) && parsedQuantity >= 1) {
-      await addToCard(props.itemId, quantity);
-      router.refresh();
-    } else {
-      alert('Please enter a positive quantity.');
-    }
+    await addToCard(props.itemId, quantity);
+    router.refresh();
   };
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -29,7 +23,10 @@ export default function ItemQuantityForm(props: Props) {
   }
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
-    setQuantity(event.currentTarget.value);
+    const inputValue = event.currentTarget.value;
+    // Allow positive integers or default to 1 if input is invalid or empty
+    const sanitizedValue = Math.max(parseInt(inputValue, 10) || 1, 1);
+    setQuantity(String(sanitizedValue));
   }
 
   return (

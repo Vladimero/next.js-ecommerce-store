@@ -37,105 +37,8 @@ export default async function NavbarForm() {
   }, 0);
 
   return (
-    <>
-      <nav className="w-full fixed top-0 z-50">
-        <div className="navbar bg-base-100">
-          <div className="navbar-start">
-            <div className="dropdown ml-2">
-              <button tabIndex={0} className="btn btn-ghost btn-circle">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16M4 18h7"
-                  />
-                </svg>
-              </button>
-              <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-                <li>
-                  <Link href="/" tabIndex={0}>
-                    Homepage
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/items" tabIndex={0} data-test-id="products-link">
-                    Products
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/" tabIndex={0}>
-                    About
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="navbar-center">
-            <div className="flex-1">
-              <Link className="btn btn-ghost normal-case text-xl" href="/">
-                <Image src={brandLogo} alt="Logo" width={200} height={40} />
-              </Link>
-            </div>
-          </div>
-
-          <div className="navbar-end mr-2">
-            <div className="flex-none">
-              <div className="dropdown dropdown-end">
-                <button tabIndex={0} className="btn btn-ghost btn-circle">
-                  <div className="indicator">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-5 w-5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                      />
-                    </svg>
-                    <span className="badge badge-sm indicator-item">
-                      {' '}
-                      {totalQuantity}{' '}
-                    </span>
-                  </div>
-                </button>
-                <div className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
-                  <div className="card-body">
-                    <span className="font-bold text-lg">
-                      {' '}
-                      {totalQuantity} items
-                    </span>
-                    <span className="text-info">{totalPrice} €</span>
-                    <div className="card-actions">
-                      <Link data-test-id="cart-link" href="/cart">
-                        <span>
-                          <button className="btn btn-outline btn-block">
-                            View cart
-                          </button>
-                        </span>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* <div className="navbar bg-base-200 fixed w-full">
+    <nav className="w-full fixed top-0 z-50">
+      <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown ml-2">
             <button tabIndex={0} className="btn btn-ghost btn-circle">
@@ -175,31 +78,17 @@ export default async function NavbarForm() {
         </div>
 
         <div className="navbar-center">
-          <Link href="/" tabIndex={0}>
-            <Image src={brandLogo} alt="Logo" width={200} height={40} />
-          </Link>
+          <div className="flex-1">
+            <Link className="btn btn-ghost normal-case text-xl" href="/">
+              <Image src={brandLogo} alt="Logo" width={200} height={40} />
+            </Link>
+          </div>
         </div>
 
         <div className="navbar-end mr-2">
-          <button tabIndex={0} className="btn btn-ghost btn-circle">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-          </button>
           <div className="flex-none">
             <div className="dropdown dropdown-end">
-              <button tabIndex={0} className="btn btn-ghost btn-circle ml-2">
+              <button tabIndex={0} className="btn btn-ghost btn-circle">
                 <div className="indicator">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -215,25 +104,23 @@ export default async function NavbarForm() {
                       d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
                     />
                   </svg>
-                  <span
-                    data-test-id="cart-count"
-                    className="badge badge-sm indicator-item"
-                  >
-                    {totalQuantity}
+                  <span className="badge badge-sm indicator-item">
+                    {' '}
+                    {totalQuantity}{' '}
                   </span>
                 </div>
               </button>
-
               <div className="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
                 <div className="card-body">
                   <span className="font-bold text-lg">
+                    {' '}
                     {totalQuantity} items
                   </span>
                   <span className="text-info">{totalPrice} €</span>
                   <div className="card-actions">
                     <Link data-test-id="cart-link" href="/cart">
                       <span>
-                        <button className="btn btn-primary btn-block">
+                        <button className="btn btn-outline btn-block">
                           View cart
                         </button>
                       </span>
@@ -244,7 +131,7 @@ export default async function NavbarForm() {
             </div>
           </div>
         </div>
-      </div> */}
-    </>
+      </div>
+    </nav>
   );
 }

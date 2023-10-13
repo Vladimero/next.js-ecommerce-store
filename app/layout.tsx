@@ -1,4 +1,5 @@
 import './globals.css';
+import Head from 'next/head';
 import { ReactNode } from 'react';
 import FooterForm from './FooterForm';
 import NavbarForm from './NavbarForm';
@@ -15,6 +16,13 @@ type Props = {
 export default function RootLayout(props: Props) {
   return (
     <html lang="en">
+      <Head>
+        <title>Wrapper Page</title>
+        <meta
+          name="description"
+          content="This page wraps all the necessary pages on our website."
+        />
+      </Head>
       <body>
         <NavbarForm />
         <main className="container mx-auto pt-20 min-h-screen">

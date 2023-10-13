@@ -19,6 +19,13 @@ export default async function ItemsPage() {
 
   return (
     <div className="grid justify-center items-center mb-24">
+      <Head>
+        <title>Items Page</title>
+        <meta
+          name="description"
+          content="Discover our divers collection of poodle items."
+        />
+      </Head>
       <div className="grid grid-cols-3 grid-rows-2 gap-6">
         {items.map((item) => {
           return (
