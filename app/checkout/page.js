@@ -42,73 +42,44 @@ export default async function CheckoutPage() {
   }, 0);
 
   return (
-    <>
-      <div className="flex flex-col w-full lg:flex-row">
-        <Head>
-          <title>Checkout Page</title>
-          <meta
-            name="description"
-            content="Fill the fields and provide your personal and payment data."
-          />
-        </Head>
-        <div className="grid flex-grow h-96 card bg-base-100 rounded-box place-items-center m-4">
-          <PersonalInformationForm />
-        </div>
-        <div className="divider lg:divider-horizontal" />
-        <div className="grid flex-grow h-96 card bg-base-100 rounded-box place-items-center m-4">
-          <PaymentCredentialsForm />
-        </div>
+    <div className="flex flex-col w-full lg:flex-row">
+      <Head>
+        <title>Checkout Page</title>
+        <meta
+          name="description"
+          content="Fill the fields and provide your personal and payment data."
+        />
+      </Head>
+      <div className="grid flex-grow h-128 card bg-base-100 rounded-box place-items-center m-4">
+        <PersonalInformationForm />
       </div>
-
-      {/* <div className="justify-center items-center min-h-screen w-full mb-14 p-6">
-        <h1>Checkout</h1>
-        <div>
-          <form>
-            {itemsWithQuantity.map((item) => {
-              return (
-                <div key={`items-${item.id}`}>
-                  <Link
-                    data-test-id="cart-product-<product id>"
-                    href={`/items/${item.id}`}
-                  >
-                    <span>
-                      <h3>{item.name}</h3>
-                    </span>
-                  </Link>
-                </div>
-              );
-            })}
-            <b />
-            <b />
-            <div>
-              <div>
-                <p>
-                  <span data-test-id="cart-total">
-                    Total Quantity: {totalQuantity} items
-                  </span>
-                </p>
-              </div>
-              <div>
-                <p>
-                  <span data-test-id="cart-total">
-                    Total Price: {totalPrice.toFixed(2)} €
-                  </span>
-                </p>
-              </div>
+      <div className="grid flex-grow h-128 card bg-base-100 rounded-box place-items-center m-4">
+        <div className="bg-white rounded-lg shadow-lg p-6 flex flex-col justify-center items-center">
+          <div className="grid grid-cols-2 gap-6">
+            <div className="col-span-2 sm:col-span-1">
+              <h3>
+                <span data-test-id="cart-total">
+                  Total Quantity:{' '}
+                  <h3 className="mb-5 block text-base font-semibold text-[#07074D] sm:text-xl">
+                    {totalQuantity} items
+                  </h3>
+                </span>
+              </h3>
             </div>
-          </form>
+            <div className="col-span-2 sm:col-span-1">
+              <h3>
+                <span data-test-id="cart-total">
+                  Total Price:{' '}
+                  <h3 className="mb-5 block text-base font-semibold text-[#07074D] sm:text-xl">
+                    {totalPrice.toFixed(2)} €
+                  </h3>
+                </span>
+              </h3>
+            </div>
+          </div>
         </div>
-        <p>Please fill the fields!</p>
-        <div>
-          <PersonalInformationForm />
-        </div>
-        <br />
-        <div>
-          <button>
-            <PaymentCredentialsForm />
-          </button>
-        </div>
-          </div>*/}
-    </>
+        <PaymentCredentialsForm />
+      </div>
+    </div>
   );
 }

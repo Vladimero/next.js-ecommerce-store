@@ -69,9 +69,7 @@ export default async function NavbarForm() {
                 </Link>
               </li>
               <li>
-                <Link href="/" tabIndex={0}>
-                  About
-                </Link>
+                <a>About</a>
               </li>
             </ul>
           </div>

@@ -16,7 +16,7 @@ export default function EditAndRemoveForm(props) {
         onChange={(event) => setQuantity(event.currentTarget.value)}
   /> */}
       <button
-        className="btn btn-sm btn-outline"
+        className="btn btn-xs btn-outline"
         data-test-id="cart-product-remove-<product id>"
         formAction={async () => await removeSingleItemFromCookies(props.itemId)}
       >
