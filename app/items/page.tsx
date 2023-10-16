@@ -10,10 +10,14 @@ export const metadata = {
   description: 'Choose your poodle goods',
 };
 
+function isNullOrUndefined(value: unknown): boolean {
+  return value === null || value === undefined;
+}
+
 export default async function ItemsPage() {
   const items = await getItems();
 
-  if (!items) {
+  if (isNullOrUndefined(items)) {
     return notFound();
   }
 

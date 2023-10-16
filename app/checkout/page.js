@@ -1,6 +1,5 @@
 import '../globals.css';
 import Head from 'next/head';
-import Link from 'next/link';
 import { getItems } from '../../database/items';
 import { getCookie } from '../../util/cookies';
 import { parseJson } from '../../util/json';
