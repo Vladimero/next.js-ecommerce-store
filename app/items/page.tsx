@@ -10,6 +10,7 @@ export const metadata = {
   description: 'Choose your poodle goods',
 };
 
+// in order to avoid ESLint message of the initial falsy value of items in the if statement
 function isNullOrUndefined(value: unknown): boolean {
   return value === null || value === undefined;
 }

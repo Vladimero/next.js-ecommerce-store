@@ -35,7 +35,7 @@ export default function ItemQuantityForm(props: Props) {
         type="number"
         className="input input-bordered w-1/4 input-md max-w-xs"
         data-test-id="product-quantity"
-        min="1"
+        min={1}
         value={quantity}
         onChange={handleChange}
       />
