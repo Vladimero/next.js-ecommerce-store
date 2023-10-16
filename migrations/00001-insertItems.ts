@@ -1,7 +1,14 @@
 import { Sql } from 'postgres';
 
+export type DatabaseType = {
+  id: number;
+  name: string;
+  price: string;
+  description: string;
+};
+
 // there is the need to manually create this array of objects
-const items = [
+export const items: DatabaseType[] = [
   {
     id: 1,
     name: 'Orthopedic Poodle Bed',
