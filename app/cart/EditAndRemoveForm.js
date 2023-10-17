@@ -7,7 +7,7 @@ export default function EditAndRemoveForm(props) {
     <form>
       <button
         className="btn btn-xs btn-outline"
-        data-test-id={`cart-product-remove-${props.itemId}`}
+        data-test-id="cart-product-remove-<product id>"
         formAction={async () => await removeSingleItemFromCookies(props.itemId)}
       >
         Remove
