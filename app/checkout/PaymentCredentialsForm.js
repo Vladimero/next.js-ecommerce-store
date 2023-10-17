@@ -124,9 +124,10 @@ export default function PaymentCredentialsForm() {
             </div>
           </div>
           <div className="mt-8">
-            <Link data-test-id="checkout-confirm-order" href="/thankYouPage">
+            <Link href="/thankYouPage">
               <span>
                 <button
+                  data-test-id="checkout-confirm-order"
                   className="btn-outline w-full bg-green-500 hover:bg-blue-600 text-white font-medium py-3 rounded-lg focus:outline-none"
                   onClick={(event) => handleConfirmOrder(event)}
                 >

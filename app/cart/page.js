@@ -80,7 +80,7 @@ export default async function CartPage() {
                         <div className="flex items-center space-x-3">
                           <div className="avatar">
                             <Link
-                              data-test-id="cart-product-<product id>"
+                              data-test-id={`cart-product-${item.id}`}
                               href={`/items/${item.id}`}
                             >
                               <div className="mask mask-squircle w-12 h-12">
@@ -100,7 +100,11 @@ export default async function CartPage() {
                         </div>
                       </td>
                       <td>{item.price}</td>
-                      <td>{item.quantity}</td>
+                      <td
+                        data-test-id={`cart-product-quantity-${item.quantity}`}
+                      >
+                        {item.quantity}
+                      </td>
                       <td>
                         {(
                           parseInt(item.quantity) * parseFloat(item.price)
@@ -122,7 +126,7 @@ export default async function CartPage() {
               <div className="grid grid-cols-2 gap-6">
                 <div className="col-span-2 sm:col-span-1">
                   <h3>
-                    <span data-test-id="cart-total">
+                    <span>
                       Total Quantity:
                       <h3 className="mb-5 block text-base font-semibold text-[#07074D] sm:text-xl">
                         {totalQuantity}
