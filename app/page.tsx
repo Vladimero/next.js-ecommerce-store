@@ -2,11 +2,11 @@ import './globals.css';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import heroImage from '../public/images/heroImage.png';
-import heroImageFour from '../public/images/heroImageFour.jpg';
-import heroImageOne from '../public/images/heroImageOne.jpg';
-import heroImageThree from '../public/images/heroImageThree.jpg';
-import heroImageTwo from '../public/images/heroImageTwo.jpg';
+import heroImageFour from '../public/images/heroImageFour.png';
+import heroImageHomepage from '../public/images/heroImageHomepage.png';
+import heroImageOne from '../public/images/heroImageOne.png';
+import heroImageThree from '../public/images/heroImageThree.png';
+import heroImageTwo from '../public/images/heroImageTwo.png';
 
 export default function Home() {
   return (
@@ -21,7 +21,7 @@ export default function Home() {
       <div className="carousel w-full">
         <div className="carousel-item">
           <Image
-            src={heroImage}
+            src={heroImageHomepage}
             alt="1"
             width={500}
             height={200}
