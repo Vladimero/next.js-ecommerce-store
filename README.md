@@ -1,6 +1,6 @@
 # Poodle Poshmart "POODLEMANIA" 🐩🛍️
 
-Welcome to Poodle Poshmart, where your furry friend will strut in style! This repository showcases a delightful e-commerce store template with a range of functionalities. From flaunting fabulous products to effortlessly managing your cart and simulating a seamless payment process – it's a paw-some experience!
+Welcome to Poodle Poshmart, where your furry friend will strut in style! This repository showcases a delightful e-commerce store with a range of functionalities. From flaunting fabulous products to effortlessly managing your cart and simulating a seamless payment process – it's a paw-some experience!
 
 <img width="1261" alt="Bildschirmfoto 2023-10-17 um 14 19 39" src="https://github.com/Vladimero/next.js-ecommerce-store/assets/138519316/4fa97b2e-8d63-43d0-a62e-15bd2bb946d9">
 
