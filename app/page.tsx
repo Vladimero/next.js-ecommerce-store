@@ -7,6 +7,7 @@ import heroImageHomepage from '../public/images/heroImageHomepage.png';
 import heroImageOne from '../public/images/heroImageOne.png';
 import heroImageThree from '../public/images/heroImageThree.png';
 import heroImageTwo from '../public/images/heroImageTwo.png';
+import NavbarForm from './NavbarForm';
 
 export default function Home() {
   return (
@@ -18,6 +19,9 @@ export default function Home() {
           content="Our divers poodle goods shop welcomes you!"
         />
       </Head>
+      <header>
+        <NavbarForm />
+      </header>
       <div className="carousel w-full">
         <div className="carousel-item">
           <Image
@@ -64,6 +68,7 @@ export default function Home() {
             className="w-full"
           />
         </div>
+        h
       </div>
 
       <div className="hero min-h-screen flex flex-col justify-start">

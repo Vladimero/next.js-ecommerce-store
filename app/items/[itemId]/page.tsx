@@ -67,9 +67,7 @@ export default async function SingleItemPage(props: Props) {
               <span data-test-id="product-price">Price: {item.price}€</span>
             </p>
             <p>
-              <span data-test-id="product-quantity">
-                Added quantity: {itemQuantityToDisplay?.quantity}
-              </span>
+              <span>Added quantity: {itemQuantityToDisplay?.quantity}</span>
             </p>
             <div className="card-actions justify-end">
               <ItemQuantityForm itemId={item.id} />
